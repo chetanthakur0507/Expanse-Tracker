@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const backendBaseUrl = import.meta.env.VITE_API_URL || ''
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: backendBaseUrl ? `${backendBaseUrl.replace(/\/$/, '')}/api` : '/api',
 })
 
 // Add token to every request
